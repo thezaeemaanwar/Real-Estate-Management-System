@@ -9,6 +9,7 @@ namespace Real_Estate_Management
     class Apartment
     {
         //every apartment should have an unique ID
+        public string ID { get; }
         private string description;
         private float perceivedValue;
         private float materialsPrice;
@@ -20,5 +21,20 @@ namespace Real_Estate_Management
         private int perceivedComfort;
         private string zone;
 
+        public Apartment(string desc, float pVal, float mPrice, float wfPrice,float cExpenditure, int sqMeter,int nRooms, bool mProximity, int pComfort, string zone)
+        {
+            Guid guid = Guid.NewGuid();
+            this.ID = guid.ToString();
+            this.description = desc;
+            this.perceivedValue = pVal;
+            this.materialsPrice = mPrice;
+            this.workForcePrice = wfPrice;
+            this.currentExpenditure = cExpenditure;
+            this.squareMeters = sqMeter;
+            this.noRooms = nRooms;
+            this.metroProximity = mProximity;
+            this.perceivedComfort = pComfort;
+            this.zone = zone;
+        }
     }
 }

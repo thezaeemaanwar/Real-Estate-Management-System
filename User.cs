@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace Real_Estate_Management
 {
-    enum UserType {
-        Director,
-        ProjectManager
-    }
     class User
     {
         private string username;

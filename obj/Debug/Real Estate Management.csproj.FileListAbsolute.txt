@@ -1,0 +1,13 @@
+F:\projects\Real Estate Management\obj\Debug\Real_Estate_Management.addApartment.resources
+F:\projects\Real Estate Management\obj\Debug\Real_Estate_Management.Login.resources
+F:\projects\Real Estate Management\obj\Debug\Real_Estate_Management.Properties.Resources.resources
+F:\projects\Real Estate Management\obj\Debug\Real Estate Management.csproj.GenerateResource.cache
+F:\projects\Real Estate Management\obj\Debug\Real Estate Management.csproj.CoreCompileInputs.cache
+F:\projects\Real Estate Management\bin\Debug\Database1.mdf
+F:\projects\Real Estate Management\bin\Debug\Database1_log.ldf
+F:\projects\Real Estate Management\bin\Debug\Real Estate Management.exe.config
+F:\projects\Real Estate Management\bin\Debug\Real Estate Management.exe
+F:\projects\Real Estate Management\bin\Debug\Real Estate Management.pdb
+F:\projects\Real Estate Management\obj\Debug\Real Estate Management.exe
+F:\projects\Real Estate Management\obj\Debug\Real Estate Management.pdb
+F:\projects\Real Estate Management\obj\Debug\Real Estate Management.csprojAssemblyReference.cache
