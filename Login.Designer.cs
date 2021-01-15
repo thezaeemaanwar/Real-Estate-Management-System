@@ -41,9 +41,10 @@ namespace Real_Estate_Management
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(109, 155);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(56, 124);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.Size = new System.Drawing.Size(89, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "User Name";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -51,9 +52,10 @@ namespace Real_Estate_Management
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(109, 199);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(56, 173);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.Size = new System.Drawing.Size(43, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Type";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -61,48 +63,51 @@ namespace Real_Estate_Management
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(109, 245);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(56, 214);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Password";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // usenameField
             // 
-            this.usenameField.Location = new System.Drawing.Point(225, 152);
+            this.usenameField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usenameField.Location = new System.Drawing.Point(174, 118);
             this.usenameField.Name = "usenameField";
-            this.usenameField.Size = new System.Drawing.Size(121, 20);
+            this.usenameField.Size = new System.Drawing.Size(167, 26);
             this.usenameField.TabIndex = 4;
-            this.usenameField.TextChanged += new System.EventHandler(this.usenameField_TextChanged);
             // 
             // passwordField
             // 
-            this.passwordField.Location = new System.Drawing.Point(225, 245);
+            this.passwordField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordField.Location = new System.Drawing.Point(174, 211);
             this.passwordField.Name = "passwordField";
-            this.passwordField.Size = new System.Drawing.Size(121, 20);
+            this.passwordField.Size = new System.Drawing.Size(167, 26);
             this.passwordField.TabIndex = 5;
-            this.passwordField.TextChanged += new System.EventHandler(this.passwordField_TextChanged);
             // 
             // typeField
             // 
+            this.typeField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.typeField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.typeField.FormattingEnabled = true;
             this.typeField.Items.AddRange(new object[] {
             "Director",
             "Project Manager"});
-            this.typeField.Location = new System.Drawing.Point(225, 199);
+            this.typeField.Location = new System.Drawing.Point(174, 165);
             this.typeField.Name = "typeField";
-            this.typeField.Size = new System.Drawing.Size(121, 21);
+            this.typeField.Size = new System.Drawing.Size(167, 28);
             this.typeField.TabIndex = 6;
-            this.typeField.SelectedIndexChanged += new System.EventHandler(this.typeField_SelectedIndexChanged);
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(360, 329);
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.Location = new System.Drawing.Point(266, 285);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(75, 23);
+            this.loginButton.Size = new System.Drawing.Size(75, 39);
             this.loginButton.TabIndex = 7;
-            this.loginButton.Text = "button1";
+            this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
@@ -110,7 +115,7 @@ namespace Real_Estate_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(406, 394);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.typeField);
             this.Controls.Add(this.passwordField);

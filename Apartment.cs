@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 namespace Real_Estate_Management
 {
-    class Apartment
+    public class Apartment
     {
-        //every apartment should have an unique ID
         public string ID { get; }
-        private string description;
-        private float perceivedValue;
-        private float materialsPrice;
-        private float workForcePrice;
-        private float currentExpenditure;
-        private int squareMeters;
-        private int noRooms;
-        private bool metroProximity;
-        private int perceivedComfort;
-        private string zone;
+        public string description{ get; }
+        public float perceivedValue{ get; }
+        public float materialsPrice{ get; }
+        public float workForcePrice{ get; }
+        public float currentExpenditure{ get; }
+        public int squareMeters{ get; }
+        public int noRooms{ get; }
+        public bool metroProximity{ get; }
+        public int perceivedComfort{ get; }
+        public string zone{ get; }
 
         public Apartment(string desc, float pVal, float mPrice, float wfPrice,float cExpenditure, int sqMeter,int nRooms, bool mProximity, int pComfort, string zone)
         {
@@ -36,5 +35,21 @@ namespace Real_Estate_Management
             this.perceivedComfort = pComfort;
             this.zone = zone;
         }
+        public Apartment(string id, string desc, float pVal, float mPrice, float wfPrice, float cExpenditure, int sqMeter, int nRooms, bool mProximity, int pComfort, string zone)
+        {
+            this.ID = id;
+            this.description = desc;
+            this.perceivedValue = pVal;
+            this.materialsPrice = mPrice;
+            this.workForcePrice = wfPrice;
+            this.currentExpenditure = cExpenditure;
+            this.squareMeters = sqMeter;
+            this.noRooms = nRooms;
+            this.metroProximity = mProximity;
+            this.perceivedComfort = pComfort;
+            this.zone = zone;
+        }
+
+
     }
 }

@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace Real_Estate_Management
 {
-    class User
+    public class User
     {
-        private string username;
-        private string type; //Director or ProjectManager
-        private string email;
-        private string password;
+        public string username{ get; }
+        public string type{ get; } //Director or Project Manager
+        public string email{ get; }
+        public string password{ get; }
+        public User(string uname, string typ, string mail, string pas)
+        {
+            this.username = uname;
+            this.type = typ;
+            this.email = mail;
+            this.password = pas;
+        }
     }
 }

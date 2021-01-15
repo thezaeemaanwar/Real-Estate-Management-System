@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace Real_Estate_Management
 {
     public partial class addApartment : Form
     {
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\projects\Real Estate Management\Database1.mdf;Integrated Security=True");
         List<Apartment> apartments = new List<Apartment>();
         public addApartment(string userType)
         {
@@ -94,9 +91,45 @@ namespace Real_Estate_Management
                 workForcePrice, currentExpenditure, squareMeters, noRooms, metroProximity,
                 perceivedComfort, zone);
             apartments.Add(apartment);
-    }
+        }
+        private void AddToDatabase()
+        {
+            con.Open();
+            // Add every apaertment in db
+            foreach (Apartment apartment in apartments)
+            {
+                string query = "INSERT INTO ApartmentTable VALUES (@id,@desc, @pVal," +
+                    "@mPrice, @wfPrice, @cExp, @sqMtr, @nRooms, @pComf,  @mProx ,@zone)";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@id", apartment.ID);
+                cmd.Parameters.AddWithValue("@desc", apartment.description);
+                cmd.Parameters.AddWithValue("@pVal",apartment.perceivedValue);
+                cmd.Parameters.AddWithValue("@mPrice", apartment.materialsPrice);
+                cmd.Parameters.AddWithValue("@wfPrice", apartment.workForcePrice);
+                cmd.Parameters.AddWithValue("@cExp", apartment.currentExpenditure);
+                cmd.Parameters.AddWithValue("@sqMtr",apartment.squareMeters);
+                cmd.Parameters.AddWithValue("@nRooms",apartment.noRooms);
+                cmd.Parameters.AddWithValue("@pComf",apartment.perceivedComfort);
+                cmd.Parameters.AddWithValue("@mProx",apartment.metroProximity);
+                cmd.Parameters.AddWithValue("@zone",apartment.zone);
 
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void savetoDbButton_Click(object sender, EventArgs e)
+        {
+            AddToDatabase();
+            // clear the list of apartments for next time
+            apartments.Clear();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }

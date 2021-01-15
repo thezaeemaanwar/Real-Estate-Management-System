@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Real_Estate_Management
 {
     public partial class Login : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\projects\Real Estate Management\Database1.mdf;Integrated Security=True"); 
         public Login()
         {
             InitializeComponent();
@@ -24,11 +16,14 @@ namespace Real_Estate_Management
             string username = usenameField.Text;
             string type = typeField.Text;
             string pass = passwordField.Text;
-            string query = "SELECT * FROM [dbo].UserTable WHERE [username]=@uname"+
+            string query = "SELECT * FROM [dbo].UserTable WHERE [username]=@uname "+
                 "AND [type]=@tp AND [password]=@pas";
 
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
+            Helper.con.Open();
+            SqlCommand cmd = new SqlCommand(query, Helper.con);
+            cmd.Parameters.AddWithValue("@uname", username);
+            cmd.Parameters.AddWithValue("@tp", type);
+            cmd.Parameters.AddWithValue("@pas", pass);
             cmd.ExecuteNonQuery();
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
@@ -40,21 +35,7 @@ namespace Real_Estate_Management
             {
                 MessageBox.Show("Invalid Login attempt", "Error");
             }
-        }
-
-        private void typeField_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void passwordField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usenameField_TextChanged(object sender, EventArgs e)
-        {
-
+            Helper.con.Close();
         }
 
         private void label3_Click(object sender, EventArgs e)
