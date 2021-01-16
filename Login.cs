@@ -18,7 +18,8 @@ namespace Real_Estate_Management
             string pass = passwordField.Text;
             string query = "SELECT * FROM [dbo].UserTable WHERE [username]=@uname "+
                 "AND [type]=@tp AND [password]=@pas";
-
+            Helper.userType = type;
+            Helper.userName = username;
             Helper.con.Open();
             SqlCommand cmd = new SqlCommand(query, Helper.con);
             cmd.Parameters.AddWithValue("@uname", username);
@@ -29,7 +30,7 @@ namespace Real_Estate_Management
             if (reader.HasRows)
             {
                 this.Hide();
-                new addApartment(type).Show();
+                new addApartment().Show();
             }
             else
             {

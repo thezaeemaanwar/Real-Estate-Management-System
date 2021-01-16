@@ -55,15 +55,13 @@ namespace Real_Estate_Management
             this.addAppartmentButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.estateProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.assignApartmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.assignProjectManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addProjectToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.manageProjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.apartmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.userBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.addUserMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.manageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -308,53 +306,43 @@ namespace Real_Estate_Management
             this.addAppartmentButton.TabIndex = 21;
             this.addAppartmentButton.Text = "Choose File";
             this.addAppartmentButton.UseVisualStyleBackColor = true;
+            this.addAppartmentButton.Click += new System.EventHandler(this.addAppartmentButton_Click);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.estateProjectToolStripMenuItem,
             this.apartmentsToolStripMenuItem,
-            this.usersToolStripMenuItem});
+            this.userBtn});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(704, 24);
             this.menuStrip1.TabIndex = 23;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // estateProjectToolStripMenuItem
             // 
             this.estateProjectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addProjectToolStripMenuItem,
-            this.assignApartmentsToolStripMenuItem,
-            this.assignProjectManagerToolStripMenuItem,
+            this.addProjectToolStrip,
             this.manageProjectsToolStripMenuItem});
             this.estateProjectToolStripMenuItem.Name = "estateProjectToolStripMenuItem";
             this.estateProjectToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.estateProjectToolStripMenuItem.Text = "Estate Project";
             // 
-            // addProjectToolStripMenuItem
+            // addProjectToolStrip
             // 
-            this.addProjectToolStripMenuItem.Name = "addProjectToolStripMenuItem";
-            this.addProjectToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.addProjectToolStripMenuItem.Text = "Add Project";
-            // 
-            // assignApartmentsToolStripMenuItem
-            // 
-            this.assignApartmentsToolStripMenuItem.Name = "assignApartmentsToolStripMenuItem";
-            this.assignApartmentsToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.assignApartmentsToolStripMenuItem.Text = "Assign Apartments";
-            // 
-            // assignProjectManagerToolStripMenuItem
-            // 
-            this.assignProjectManagerToolStripMenuItem.Name = "assignProjectManagerToolStripMenuItem";
-            this.assignProjectManagerToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.assignProjectManagerToolStripMenuItem.Text = "Assign Project Manager";
+            this.addProjectToolStrip.Name = "addProjectToolStrip";
+            this.addProjectToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.addProjectToolStrip.Text = "Add Project";
+            this.addProjectToolStrip.Click += new System.EventHandler(this.addProjectToolStripMenuItem_Click);
             // 
             // manageProjectsToolStripMenuItem
             // 
             this.manageProjectsToolStripMenuItem.Name = "manageProjectsToolStripMenuItem";
-            this.manageProjectsToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.manageProjectsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.manageProjectsToolStripMenuItem.Text = "Manage Projects";
+            this.manageProjectsToolStripMenuItem.Click += new System.EventHandler(this.manageProjectsToolStripMenuItem_Click);
             // 
             // apartmentsToolStripMenuItem
             // 
@@ -376,21 +364,23 @@ namespace Real_Estate_Management
             this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
             this.manageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.manageToolStripMenuItem.Text = "Manage ";
+            this.manageToolStripMenuItem.Click += new System.EventHandler(this.manageToolStripMenuItem_Click);
             // 
-            // usersToolStripMenuItem
+            // userBtn
             // 
-            this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem1,
+            this.userBtn.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addUserMenuStrip,
             this.manageToolStripMenuItem1});
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.usersToolStripMenuItem.Text = "Users";
+            this.userBtn.Name = "userBtn";
+            this.userBtn.Size = new System.Drawing.Size(47, 20);
+            this.userBtn.Text = "Users";
             // 
-            // addToolStripMenuItem1
+            // addUserMenuStrip
             // 
-            this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
-            this.addToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.addToolStripMenuItem1.Text = "Add";
+            this.addUserMenuStrip.Name = "addUserMenuStrip";
+            this.addUserMenuStrip.Size = new System.Drawing.Size(180, 22);
+            this.addUserMenuStrip.Text = "Add";
+            this.addUserMenuStrip.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
             // 
             // manageToolStripMenuItem1
             // 
@@ -448,15 +438,13 @@ namespace Real_Estate_Management
         private System.Windows.Forms.Button addAppartmentButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem estateProjectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addProjectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem assignApartmentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem assignProjectManagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addProjectToolStrip;
         private System.Windows.Forms.ToolStripMenuItem manageProjectsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem apartmentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem userBtn;
+        private System.Windows.Forms.ToolStripMenuItem addUserMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem manageToolStripMenuItem1;
     }
 }

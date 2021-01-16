@@ -122,5 +122,11 @@ namespace Real_Estate_Management
                 zoneField.Text = ap.zone;
             }
         }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new addApartment().Show();
+        }
     }
 }

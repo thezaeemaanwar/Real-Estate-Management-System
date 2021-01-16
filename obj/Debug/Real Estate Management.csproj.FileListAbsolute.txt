@@ -11,3 +11,36 @@ F:\projects\Real Estate Management\bin\Debug\Real Estate Management.pdb
 F:\projects\Real Estate Management\obj\Debug\Real Estate Management.exe
 F:\projects\Real Estate Management\obj\Debug\Real Estate Management.pdb
 F:\projects\Real Estate Management\obj\Debug\Real Estate Management.csprojAssemblyReference.cache
+F:\projects\Real Estate Management\bin\Debug\BouncyCastle.Crypto.dll
+F:\projects\Real Estate Management\bin\Debug\Common.Logging.Core.dll
+F:\projects\Real Estate Management\bin\Debug\Common.Logging.dll
+F:\projects\Real Estate Management\bin\Debug\itext.barcodes.dll
+F:\projects\Real Estate Management\bin\Debug\itext.forms.dll
+F:\projects\Real Estate Management\bin\Debug\itext.io.dll
+F:\projects\Real Estate Management\bin\Debug\itext.kernel.dll
+F:\projects\Real Estate Management\bin\Debug\itext.layout.dll
+F:\projects\Real Estate Management\bin\Debug\itext.pdfa.dll
+F:\projects\Real Estate Management\bin\Debug\itext.sign.dll
+F:\projects\Real Estate Management\bin\Debug\itext.styledxmlparser.dll
+F:\projects\Real Estate Management\bin\Debug\itext.svg.dll
+F:\projects\Real Estate Management\bin\Debug\BouncyCastle.Crypto.xml
+F:\projects\Real Estate Management\bin\Debug\Common.Logging.pdb
+F:\projects\Real Estate Management\bin\Debug\Common.Logging.xml
+F:\projects\Real Estate Management\bin\Debug\Common.Logging.Core.pdb
+F:\projects\Real Estate Management\bin\Debug\Common.Logging.Core.xml
+F:\projects\Real Estate Management\bin\Debug\itext.barcodes.xml
+F:\projects\Real Estate Management\bin\Debug\itext.forms.xml
+F:\projects\Real Estate Management\bin\Debug\itext.io.xml
+F:\projects\Real Estate Management\bin\Debug\itext.kernel.xml
+F:\projects\Real Estate Management\bin\Debug\itext.layout.xml
+F:\projects\Real Estate Management\bin\Debug\itext.pdfa.xml
+F:\projects\Real Estate Management\bin\Debug\itext.sign.xml
+F:\projects\Real Estate Management\bin\Debug\itext.styledxmlparser.xml
+F:\projects\Real Estate Management\bin\Debug\itext.svg.xml
+F:\projects\Real Estate Management\obj\Debug\Real_Estate_Management.AddProject.resources
+F:\projects\Real Estate Management\obj\Debug\Real_Estate_Management.ModifyProject.resources
+F:\projects\Real Estate Management\obj\Debug\Real_Estate_Management.ProjectDetails.resources
+F:\projects\Real Estate Management\obj\Debug\Real_Estate_Management.ViewProjects.resources
+F:\projects\Real Estate Management\obj\Debug\Real Estate Management.csproj.CopyComplete
+F:\projects\Real Estate Management\obj\Debug\Real_Estate_Management.AddUser.resources
+F:\projects\Real Estate Management\obj\Debug\Real_Estate_Management.ViewApartments.resources

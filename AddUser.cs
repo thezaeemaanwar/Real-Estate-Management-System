@@ -1,32 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Real_Estate_Management
 {
     public partial class AddUser : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\projects\Real Estate Management\Database1.mdf;Integrated Security=True");
         public AddUser()
         {
             InitializeComponent();
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private void loginButton_Click(object sender, EventArgs e)
         {
-            string name = usenameField.Text;
-            string type = typeField.Text;
-            string pass = passwordField.Text;
+            string uname = usenameField.Text;
+            string type = typeField.SelectedItem.ToString();
+            string passs = passwordField.Text;
             string email = emailField.Text;
-            con.Open();
-            string query = "INSERT INTO [dbo].UserTable (username, type, password, email) VALUES()"
+
+            Helper.con.Open();
+            
+            string query = "INSERT INTO [dbo].[UserTable] VALUES (@uname, @type, @mail, @pass)";
+            SqlCommand cmd = new SqlCommand(query, Helper.con);
+            cmd.Parameters.AddWithValue("@uname", uname);
+            cmd.Parameters.AddWithValue("@type", type);
+            cmd.Parameters.AddWithValue("@mail", email);
+            cmd.Parameters.AddWithValue("@pass", passs);
+
+            cmd.ExecuteNonQuery();
+            Helper.con.Close();
+
+            MessageBox.Show("User added successfully !");
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new addApartment().Show();
+        }
+
+        private void AddUser_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

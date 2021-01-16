@@ -68,7 +68,35 @@ namespace Real_Estate_Management
 
         private void ViewProjects_Load(object sender, EventArgs e)
         {
+            List<EstateProject> projects;
+            if (Helper.userType == "Project Manager")
+            {
+                addProjectBton.Visible = false;
+                projects = Helper.FindProjects(Helper.userName);
+            }
+            else
+            {
+                projects = Helper.GetEstateProjects();
+            }
+            projectsTable.Rows.Clear();
+            foreach (EstateProject p in projects)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(projectsTable);
+                row.Cells[0].Value = p.ID;
+                row.Cells[1].Value = p.description;
+                row.Cells[2].Value = p.noWorkers;
+                row.Cells[3].Value = p.apartments;
+                row.Cells[4].Value = p.users;
 
+                projectsTable.Rows.Add(row);
+            }
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new addApartment().Show();
         }
     }
 }

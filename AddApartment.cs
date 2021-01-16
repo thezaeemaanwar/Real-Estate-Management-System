@@ -11,9 +11,10 @@ namespace Real_Estate_Management
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\projects\Real Estate Management\Database1.mdf;Integrated Security=True");
         List<Apartment> apartments = new List<Apartment>();
-        public addApartment(string userType)
+        public addApartment()
         {
             InitializeComponent();
+            
         }
 
         private void addAppartmentButton_Click(object sender, EventArgs e)
@@ -69,11 +70,6 @@ namespace Real_Estate_Management
             }
         }
 
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void addButton_Click(object sender, EventArgs e)
         {
             // apply conditions for validation
@@ -91,6 +87,7 @@ namespace Real_Estate_Management
                 workForcePrice, currentExpenditure, squareMeters, noRooms, metroProximity,
                 perceivedComfort, zone);
             apartments.Add(apartment);
+            MessageBox.Show("Added Apertment successfully");
         }
         private void AddToDatabase()
         {
@@ -119,17 +116,46 @@ namespace Real_Estate_Management
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            if (Helper.userType == "Project Manager")
+            {
+                addUserMenuStrip.Visible = false;
+                addProjectToolStrip.Visible = false;
+            }
         }
 
         private void savetoDbButton_Click(object sender, EventArgs e)
         {
             AddToDatabase();
+            MessageBox.Show("Saved in Database");
             // clear the list of apartments for next time
             apartments.Clear();
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void addProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new AddProject().Show();
+        }
+
+        private void manageProjectsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new ViewProjects().Show();
+        }
+
+        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new AddUser().Show();
+        }
+
+        private void manageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new ViewApartments().Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }

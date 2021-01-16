@@ -63,6 +63,7 @@ namespace Real_Estate_Management
             this.label4 = new System.Windows.Forms.Label();
             this.addProjectButton = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.backButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,9 +76,9 @@ namespace Real_Estate_Management
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.descriptionField);
             this.groupBox1.Controls.Add(this.noWorkersField);
-            this.groupBox1.Location = new System.Drawing.Point(31, 41);
+            this.groupBox1.Location = new System.Drawing.Point(31, 74);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(268, 207);
+            this.groupBox1.Size = new System.Drawing.Size(268, 183);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enter Description ";
@@ -278,7 +279,6 @@ namespace Real_Estate_Management
             // 
             // zoneField
             // 
-            this.zoneField.Enabled = false;
             this.zoneField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.zoneField.Location = new System.Drawing.Point(331, 291);
             this.zoneField.Name = "zoneField";
@@ -289,7 +289,6 @@ namespace Real_Estate_Management
             // 
             // pComfortField
             // 
-            this.pComfortField.Enabled = false;
             this.pComfortField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pComfortField.Location = new System.Drawing.Point(331, 230);
             this.pComfortField.Name = "pComfortField";
@@ -300,7 +299,6 @@ namespace Real_Estate_Management
             // 
             // nRoomsField
             // 
-            this.nRoomsField.Enabled = false;
             this.nRoomsField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nRoomsField.Location = new System.Drawing.Point(331, 170);
             this.nRoomsField.Name = "nRoomsField";
@@ -311,7 +309,6 @@ namespace Real_Estate_Management
             // 
             // sqMeterField
             // 
-            this.sqMeterField.Enabled = false;
             this.sqMeterField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sqMeterField.Location = new System.Drawing.Point(331, 113);
             this.sqMeterField.Name = "sqMeterField";
@@ -322,7 +319,6 @@ namespace Real_Estate_Management
             // 
             // cExpField
             // 
-            this.cExpField.Enabled = false;
             this.cExpField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cExpField.Location = new System.Drawing.Point(331, 51);
             this.cExpField.Name = "cExpField";
@@ -333,7 +329,6 @@ namespace Real_Estate_Management
             // 
             // wfPriceField
             // 
-            this.wfPriceField.Enabled = false;
             this.wfPriceField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wfPriceField.Location = new System.Drawing.Point(28, 291);
             this.wfPriceField.Name = "wfPriceField";
@@ -344,7 +339,6 @@ namespace Real_Estate_Management
             // 
             // mPriceField
             // 
-            this.mPriceField.Enabled = false;
             this.mPriceField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mPriceField.Location = new System.Drawing.Point(28, 231);
             this.mPriceField.Name = "mPriceField";
@@ -355,7 +349,6 @@ namespace Real_Estate_Management
             // 
             // pValField
             // 
-            this.pValField.Enabled = false;
             this.pValField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pValField.Location = new System.Drawing.Point(28, 173);
             this.pValField.Name = "pValField";
@@ -429,11 +422,23 @@ namespace Real_Estate_Management
             this.addProjectButton.UseVisualStyleBackColor = true;
             this.addProjectButton.Click += new System.EventHandler(this.addProjectButton_Click);
             // 
+            // backButton
+            // 
+            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 39);
+            this.backButton.TabIndex = 44;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // AddProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 482);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.addProjectButton);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -486,5 +491,6 @@ namespace Real_Estate_Management
         private System.Windows.Forms.Button assignUserButton;
         private System.Windows.Forms.Button addProjectButton;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Button backButton;
     }
 }

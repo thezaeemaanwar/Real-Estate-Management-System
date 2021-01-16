@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 
 namespace Real_Estate_Management
@@ -11,9 +8,11 @@ namespace Real_Estate_Management
     {
         public static SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\projects\Real Estate Management\Database1.mdf;Integrated Security=True");
         public static string userType = "";
+        public static string userName = "";
         public static Apartment FindApartment(string appId)
         {
-            con.Open();
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
             string query = "SELECT * FROM [dbo].[ApartmentTable] WHERE id = @id";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", appId);
@@ -42,31 +41,36 @@ namespace Real_Estate_Management
         }
         public static User FindUser(string uname)
         {
-            con.Open();
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
             // Look for the user in DB
             string query = "SELECT * FROM [dbo].[UserTable] WHERE username = @uname";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@uname", uname);
             cmd.ExecuteNonQuery();
             SqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
-            con.Close();
-            string type = reader[1].ToString();
-            string email = reader[2].ToString();
-            string password = reader[3].ToString();
+            string type = "";
+            string email = "";
+            string password = "";
+            if (reader.Read())
+            {
+                type = reader[1].ToString();
+                email = reader[2].ToString();
+                password = reader[3].ToString();
+            }
             User user = new User(uname, type, email, password);
+            con.Close();
             return user;
-        } 
+        }
         public static List<EstateProject> FindProjects(string uname)
         {
             List<EstateProject> projects = new List<EstateProject>();
             con.Open();
-            string query = "SELECT * FROM [dbo].[ProjectsTable] WHERE username LIKE '%,'+@username+',%";
+            string query = "SELECT * FROM [dbo].[ProjectsTable] WHERE Users LIKE '%,'+@username+',%'";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@username", uname);
             cmd.ExecuteNonQuery();
             SqlDataReader reader = cmd.ExecuteReader();
-            con.Close();
             while (reader.Read())
             {
                 string id = reader[0].ToString();
@@ -76,17 +80,19 @@ namespace Real_Estate_Management
                 string[] Users = reader[4].ToString().Split(',');
                 List<Apartment> apartments1 = new List<Apartment>();
                 List<User> users = new List<User>();
-                foreach(string user in Users)
+                foreach (string user in Users)
                 {
                     users.Add(FindUser(user));
                 }
-                foreach(string apartment in apartments)
+                foreach (string apartment in apartments)
                 {
                     apartments1.Add(FindApartment(apartment));
                 }
+                con.Open();
                 EstateProject project = new EstateProject(id, desc, noWork, apartments1, users);
                 projects.Add(project);
             }
+            con.Close();
             return projects;
         }
         public static List<User> GetUsers()
@@ -150,26 +156,38 @@ namespace Real_Estate_Management
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.ExecuteNonQuery();
             SqlDataReader reader = cmd.ExecuteReader();
-            con.Close();
+            List<string> users = new List<string>();
+            List<string> apartments = new List<string>();
             while (reader.Read())
             {
                 string id = reader[0].ToString();
                 string desc = reader[1].ToString();
-                int noWork = Convert.ToInt32(reader[2]);
-                string[] apartments = reader[3].ToString().Split(',');
-                string[] Users = reader[4].ToString().Split(',');
-                List<Apartment> apartments1 = new List<Apartment>();
-                List<User> users = new List<User>();
-                foreach (string user in Users)
-                {
-                    users.Add(FindUser(user));
-                }
-                foreach (string apartment in apartments)
-                {
-                    apartments1.Add(FindApartment(apartment));
-                }
-                EstateProject project = new EstateProject(id, desc, noWork, apartments1, users);
+                int noWork;
+                if (reader[2] == DBNull.Value)
+                    noWork = 0;
+                else
+                    noWork = Convert.ToInt32(reader[2]);
+                apartments.Add(reader[3].ToString());
+                users.Add(reader[4].ToString());
+                EstateProject project = new EstateProject(id, desc, noWork);
                 projects.Add(project);
+            }
+            con.Close();
+            int count = 0;
+            foreach (EstateProject p in projects)
+            {
+                string [] usersstr = users[count].Split(',');
+                foreach(string user in usersstr)
+                {
+                    if (user != "NULL")
+                        p.AssignManager(user);
+                }
+                string[] appStr = apartments[count].Split(',');
+                foreach(string ap in appStr)
+                {
+                    if (ap != "NULL")
+                        p.AssignApartment(ap);
+                }
             }
             return projects;
         }

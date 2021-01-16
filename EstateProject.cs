@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using 
 
 namespace Real_Estate_Management
 {
@@ -11,8 +10,8 @@ namespace Real_Estate_Management
         public string ID { get; }
         public string description { get; set; }
         public int noWorkers { get; set; }
-        public List<Apartment> apartments { get; }
-        public List<User> users { get; }
+        public List<Apartment> apartments { get; } = new List<Apartment>();
+        public List<User> users { get; } = new List<User>();
         
         public EstateProject()
         {
@@ -24,6 +23,12 @@ namespace Real_Estate_Management
             cmd.Parameters.AddWithValue("@id", this.ID);
             cmd.ExecuteNonQuery();
             Helper.con.Close();
+        }
+        public EstateProject(string id, string desc, int nWorkers)
+        {
+            this.ID = id;
+            this.description = desc;
+            this.noWorkers = nWorkers;
         }
         public EstateProject(string desc, int nW, List<Apartment> apartments, List<User> users)
         {
@@ -99,6 +104,8 @@ namespace Real_Estate_Management
         {
             this.users.Add(Helper.FindUser(uname));
 
+            Helper.con.Open();
+
             string usernames = "";
 
             // Look for the alredy existing users in DB
@@ -108,7 +115,9 @@ namespace Real_Estate_Management
             cmd.ExecuteNonQuery();
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
+            {
                 usernames = reader[0].ToString();
+            }
 
             // Concatenate the already existing Usernames
             usernames += ","+uname;

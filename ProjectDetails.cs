@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.IO.Image;
+using iText.Layout.Properties;
+using System.IO;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Real_Estate_Management
 {
@@ -23,12 +23,36 @@ namespace Real_Estate_Management
         {
             chart1.DataSource = project.GetPercievedValues();
             chart2.DataSource = project.GetWorkforcePrice();
+            
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             new ViewProjects().Show();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog1.FileName;
+                using (PdfWriter writer = new PdfWriter(filePath))
+                {
+                    using (PdfDocument pdf = new PdfDocument(writer))
+                    {
+                        Document document = new Document(pdf);
+                        var memoryStream = new MemoryStream();
+                        chart1.SaveImage(memoryStream, ChartImageFormat.Png);
+
+                        ImageData imageData = ImageDataFactory.Create(memoryStream.GetBuffer());
+                        Image img = new Image(imageData);
+
+                        document.Add(img);
+                        document.Close();
+                    }
+                }
+            }
         }
     }
 }
